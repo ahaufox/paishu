@@ -1,2 +1,79 @@
 {include file="header_small" /}
+<div class="aui-content">
+<link rel="stylesheet" type="text/css" href="./static/css/aui-slide.css" />
+<script type="text/javascript" src="./static/script/aui-slide.js"></script>
+<!--图片轮播板块开始-->
+<div style="height:30%;" >
+    <img style="margin:20px auto;text-align:center" src="{$assess}"/>
+    <a style="text-align:center">上门图片代替logo</a>
+</div>
+<!--图片轮播板块结束-->
+</div>
+<form>
+<div class="aui-content">
+<div class="aui-content aui-margin-b-15">
+    <ul class="aui-list aui-form-list">
+        <li class="aui-list-item">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-label-icon">
+                    <i class="aui-iconfont aui-icon-mobile"></i>
+                </div>
+                <div class="aui-list-item-input">
+
+                    <input type="text" placeholder="username" name="username">
+                </div>
+            </div>
+        </li>
+        <li class="aui-list-item">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-label-icon">
+                    <i class="aui-iconfont aui-icon-lock"></i>
+                </div>
+                <div class="aui-list-item-input">
+                    <input type="password" placeholder="password" name="password">
+                </div>
+                <div class="aui-list-item-label-icon">
+                    <i class="aui-iconfont aui-icon-display"></i>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+<div class="aui-content-padded">
+    <button method="post" type="submit" class="aui-btn aui-btn-success aui-btn-block aui-btn-outlined" onclick="return check(this.form);">登录
+    </button>
+
+</div>
+    </form>
+<div class="aui-content-padded">
+    <div style="text-align:center">或</div>
+    <div style="text-align:center"><button class="button button-primary button-box button-giant button-longshadow-right">
+        <i class="fa fa-twitter"></i>
+    </button>
+    <div>微信登录</div>
+    </div>
+
+</div>
+
+<div class="aui-content-padded">
+    <div class="button button-glow button-border button-rounded button-primary" style="width:100%;margin:0 auto;">注册</div>
+</div>
+<script type="text/javascript">
+    function check(form) {
+//check开始
+        if (form.username.value == '') {
+            alert("用户名为空!");
+            return false;
+        }
+        if (form.password.value == '') {
+            alert("密码为空!");
+            return false;
+        }
+        if (form.username.value.length <4) {
+            alert("用户名错误!");
+            return false;
+        }
+        return true;//检查表格内容是否正确，若正确，提交内容
+    }
+</script>
 {include file="bottom" /}

@@ -18,7 +18,8 @@ class Login extends Controller
             'description'=>$seo['description'],
             'title'=>$seo['title']
         ]);
-
+        \think\Image::open(ROOT_PATH.'/public/static/image/hongbao.png')->thumb(100, 100)->radius(50)->save(ROOT_PATH.'/public/static/image/f1_80*80.jpg');
+        $this->assign('assess','./static/image/f1_80*80.jpg');
         return $this->fetch('./login');
 
     }
