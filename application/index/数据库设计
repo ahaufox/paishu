@@ -1,0 +1,73 @@
+seo-负责各个页面seo相关设置
+{
+    id->自增主键;
+    title->标题;
+    keywords->关键词;
+    description->描述;
+    controller->对应的控制器;
+    }
+
+user-负责用户基础信息储存
+{
+    id->自增id;
+    username->用户登录名(昵称);
+    email->用户邮箱;
+    password->密码;
+    avatar->用户头像;
+    mobile_phone->用户手机号
+    register_time->注册时间;
+    register_ip->注册ip;  //是否要存转换后的数据?
+    register_location->注册地址;
+    login_time->最近登录时间;
+    login_ip->最近登录ip;
+    weichat_id->用户的微信openid;
+    is_weichat->是否为微信绑定用户;1,0;
+    assess->用户收到的评价;
+
+}
+assess-负责商品评价内容
+{
+    id->自增id
+    product_id->对应产品id
+    author_id->评价人的user_id
+    avatar->用户头像    //是否根据id自己查
+    author_name->评价人昵称  //是否根据id实时去查
+    content->评价内容
+    assess_time->评价时间
+}
+
+cat-产品分类表
+{
+    id
+    cat_id->分类编码
+    cat_name
+    parent_id->上级分类
+    is_last->是否为最终分类
+    num->分类包含书籍数量
+}
+on_sale-负责在售书籍管理
+{
+    id->自增id
+    prudoct_id->产品id,唯一,php自动生成
+    cat_id->所属分类id
+    isbn->isbn编码
+    title->标题
+    old_price->原价
+    price->销售价
+    pic->产品图片json包含
+    discription->描述
+    new_old->新旧程度1-9;
+    user_id->所属用户
+    is_delete->是否已经删除
+    is_onsale->是否在售
+    has_sale->是否通过平台成交
+    on_sale_time->首次上架时间
+    sale_time->售出时间
+    saler_phone->用户留的联系方式,默认为用户绑定手机号,若为空则强制填写;
+}
+order-订单管理
+{
+    id->
+    order_id->
+    order_time->
+}

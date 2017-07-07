@@ -1,14 +1,13 @@
 <?php
 namespace app\index\controller;
 
+use app\index\model\Seo;
 use think\Controller;
 use think\Session;
-use app\index\model\Seo;
 
-class Index extends Controller
+
+class Yuyue extends Controller
 {
-
-    //定义seo三个字段
     public function _initialize()
     {
 
@@ -31,14 +30,15 @@ class Index extends Controller
         }
     }
 
+
+
+
     public function index()
-     {
-         session::set('name','xxthinkphp');
-		 $name = session::get('name');
-		 $this->assign('name',$name);
+    {
+
+        return $this->fetch('./yuyue');
+
+    }
 
 
-		 return $this->fetch('./index');
-
-     }
 }

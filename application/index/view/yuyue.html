@@ -1,0 +1,116 @@
+{include file="header_small" /}
+<div  style="max-width:640px; margin:0 auto; background-color:#ffffff">
+    <div style="width:100%; margin:0 auto;overflow: hidden;">
+        <img src="./static/image/gongxiang.png" style="max-width:100%;">
+    </div>
+    <!--顶部图片-->
+
+    <div class="weui-slider__inner" style="font-size:14px;">
+        <div style="width: 0;" class="weui-slider__track"></div>
+        <div style="left: 14%;width: 10px;height: 10px;margin-top: -5px;background-color: #1AAD19;"
+             class="weui-slider__handler"></div>
+        <div style="left: 38%;width: 10px;height: 10px;margin-top: -5px;background-color: #999;"
+             class="weui-slider__handler"></div>
+        <div style="left: 61%;width: 10px;height: 10px;margin-top: -5px;background-color: #999;"
+             class="weui-slider__handler"></div>
+        <div style="left: 85.5%;width: 10px;height: 10px;margin-top: -5px;background-color: #999;"
+             class="weui-slider__handler"></div>
+        <div style="margin-top:5px;left:  6%;float: left;width: 24%; text-align:center;color:#1AAD19;">预约取书</div>
+        <div style="margin-top:5px;left: 22%;float: left;width: 24%;text-align:center;">上门收书</div>
+        <div style="margin-top:5px;left: 55%;float: left;width: 24%;text-align:center;">π币入账</div>
+        <div style="margin-top:5px;left: 69%;float: left;width: 24%;text-align:center;">置换or提现</div>
+    </div>
+    <br><!--- 顶部4个提示 -->
+
+    <!--- 顶部重填提醒 -->
+    <div class="page__bd">
+        <form method="post" action="./remember.php">
+            <div class="weui-cells weui-cells_form">
+                <div class="weui-cell">
+                    <div class="weui-cell__hd"><label class="weui-label">预计数量</label></div>
+                    <div class="weui-cell__bd">
+                        <input class="weui-input" type="number" pattern="[0-9]*" placeholder="请输入书的数量" name="number">
+                    </div>
+                    <div>本</div>
+                </div>
+                <div class="weui-cell">
+                    <div class="weui-cell__hd">
+                        <label class="weui-label">手机号</label>
+                    </div>
+                    <div class="weui-cell__bd">
+                        <input class="weui-input" type="tel" name="tel" placeholder="请填写您的联系方式">
+                    </div>
+                </div>
+                <div class="weui-cell">
+                    <div class="weui-cell__hd"><label for="" class="weui-label">预约时间</label></div>
+                    <div class="weui-cell__bd">
+                        <input class="weui-input" type="date" value="" name="yydate">
+                    </div>
+                </div>
+                <div class="weui-cell">
+                    <div class="weui-cell__hd"><label for="" class="weui-label">地址</label></div>
+                    <div class="weui-cell__bd">
+                        <input class="weui-input" type="text" value="" placeholder="XX学校XX校区XX号公寓" name="location">
+                    </div>
+                </div>
+            </div>
+            <button method="post" type="submit" class="weui-btn weui-btn_primary" onclick="return check(this.form);">提交
+            </button>
+        </form>
+        <div style="display:inline;"><i class="weui-icon-info-circle"
+                                        style="font-size:14px; float: left;padding-top:5px;"></i>
+            <div style="font-size:12px; float:left; width:90%; margin-bottom:10px;"><a>书本可</a><a
+                    style="color:red; font-weight:800;">兑换为现金</a><a>，也可</a><a
+                    style="color:red; font-weight:800;">兑换为π币</a>。π币可在平台用来兑换其他书本。我们将尽最大努力，让大家可以购买到最便宜的二手书。
+            </div>
+            <div style="clear:both;"></div>
+        </div>
+
+        <div style="padding: 30px 0 0 0;">
+            <div style="margin: 0 auto; text-align: center; font-weight: 600; font-size: 18px;"><a>相关问题</a></div>
+            <a href="http://www.paishuclub.com/mobile/index.php?m=default&amp;c=article&amp;a=info&amp;aid=7"
+               target="_blank"
+               style="display: block;color: #000;text-decoration: none;border-bottom: 1px solid #abab8f">收书的时候，书本的价格是怎么算是？</a>
+            <a href="http://www.paishuclub.com/mobile/index.php?m=default&amp;c=article&amp;a=info&amp;aid=10"
+               target="_blank"
+               style="display: block;color: #000;text-decoration: none;border-bottom: 1px solid #abab8f">预约后多久会联系我？</a>
+            <a href="http://www.paishuclub.com/mobile/index.php?m=default&amp;c=article&amp;a=info&amp;aid=8"
+               target="_blank"
+               style="display: block;color: #000;text-decoration: none;border-bottom: 1px solid #abab8f">π币怎么提现？</a>
+            <a href="http://www.paishuclub.com/mobile/index.php?m=default&amp;c=article&amp;a=info&amp;aid=9"
+               target="_blank"
+               style="display: block;color: #000;text-decoration: none;border-bottom: 1px solid #abab8f">怎么买书？</a>
+        </div>
+        <br>
+        <div class="page__ft">微信/QQ：452193182</div>
+
+        <script type="text/javascript">
+            function check(form) {
+//check开始
+                if (form.tel.value == '') {
+                    alert("没有手机号，小π怎么联系您呢");
+                    return false;
+                }
+                if (form.tel.value.length != 11) {
+                    alert("手机号写错啦，赶紧检查下吧");
+                    return false;
+                }
+                if (form.yydate.value == '') {
+                    alert("请选择一个您方便的上面取书时间哦");
+                    return false;
+                }
+                if (form.location.value == '') {
+                    alert("没有写地址哦");
+                    return false;
+                }
+                if (form.number.value == '') {
+                    alert("您有多少书要置换呢？");
+                    return false;
+                }
+                return true;//检查表格内容是否正确，若正确，执行一下内容 else 停止执行
+            }
+        </script>
+    </div>
+</div>
+
+{include file="bottom" /}

@@ -1,18 +1,106 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>{$name}</title>
-</head>
+{include file="header" /}
+<!--加载头部内容 css,js,head-->
+<link rel="stylesheet" type="text/css" href="./static/css/aui-slide.css" />
+<script type="text/javascript" src="./static/script/aui-slide.js"></script>
+<!--图片轮播板块开始-->
+<div id="aui-slide3">
+    <div class="aui-slide-wrap" >
+        <div class="aui-slide-node bg-dark">
+            <img src="./static/image/l1.png" />
+        </div>
+        <div class="aui-slide-node bg-dark">
+            <img src="./static/image/l2.png" />
+        </div>
+        <div class="aui-slide-node bg-dark">
+            <img src="./static/image/l3.png" />
+        </div>
+    </div>
+    <div class="aui-slide-page-wrap"><!--分页容器--></div>
+</div>
+<script type="text/javascript">
+    var slide3 = new auiSlide({
+        container:document.getElementById("aui-slide3"),
+        // "width":300,
+        "height":240,
+        "speed":800,
+        "autoPlay": 3000, //自动播放
+        "loop":true,
+        "pageShow":true,
+        "pageStyle":'dot',
+        'dotPosition':'center'
+    })
 
-<body>
-<a>{$name}</a>
-<br/>
-{$Think.const.APP_PATH} 
-<br>
-<a> juse a test!</a>
-<br>
+</script>
+<!--图片轮播板块结束-->
 
-<div><img src="{:captcha_src()}" alt="captcha" /></div>
-</body>
-</html>
+<!--按钮轮播板块开始-->
+
+<div id="aui-slide">
+    <div class="aui-slide-wrap" >
+        <div class="aui-slide-node">
+            <div class="aui-grid">
+                <div class="aui-row">
+                    <div class="aui-col-xs-4">
+                        <div class="aui-badge">8</div>
+                        <i class="aui-iconfont aui-icon-home"></i>
+                        <div class="aui-grid-label">首页</div>
+                    </div>
+                    <div class="aui-col-xs-4">
+                        <i class="aui-iconfont aui-icon-gear"></i>
+                        <div class="aui-grid-label">设置</div>
+                    </div>
+                    <div class="aui-col-xs-4">
+                        <i class="aui-iconfont aui-icon-map"></i>
+                        <div class="aui-grid-label">地图</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="aui-slide-node">
+            <div class="aui-grid">
+                <div class="aui-row">
+                    <div class="aui-col-xs-4">
+                        <i class="aui-iconfont aui-icon-calendar"></i>
+                        <div class="aui-grid-label">日历</div>
+                    </div>
+                    <div class="aui-col-xs-4">
+                        <div class="aui-badge"></div>
+                        <i class="aui-iconfont aui-icon-date"></i>
+                        <div class="aui-grid-label">日期</div>
+                    </div>
+                    <div class="aui-col-xs-4">
+                        <div class="aui-dot"></div>
+                        <i class="aui-iconfont aui-icon-cart"></i>
+                        <div class="aui-grid-label">购物车</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--分页容标示-->
+   <div class="aui-slide-page-wrap"></div>
+</div>
+
+<script type="text/javascript">
+    var slide = new auiSlide({
+        container:document.getElementById("aui-slide"),
+        // "width":300,
+        "height":100,
+        "autoPlay": 5000, //自动播放
+        "speed":800,
+        "pageShow":true,
+        "pageStyle":'line',//之前是 dot
+        "loop":true,
+        'dotPosition':'center',
+        currentPage:currentFun
+    })
+
+    function currentFun(index) {
+
+    }
+</script>
+<!--按钮轮播板块结束-->
+
+
+<!--加载底部内容 底部版权和导航-->
+{include file="bottom" /}
