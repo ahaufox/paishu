@@ -8,30 +8,18 @@ use think\Session;
 
 class Register extends Controller
 {
-    public function _initialize()
+    public function _initialize()//定义seo三个字段
     {
 
-        $seo=Seo::getByController(CONTROLLER_NAME);
-        if(empty($seo)){
-            $seo=Seo::getByController('index');
-            $title = $seo->title;
-            $keywords = $seo->keywords;
-            $description = $seo->description;
-            $this->assign('keywords', $keywords);
-            $this->assign('description', $description);
-            $this->assign('title', $title);
-        }else {
-            $title = $seo->title;
-            $keywords = $seo->keywords;
-            $description = $seo->description;
-            $this->assign('keywords', $keywords);
-            $this->assign('description', $description);
-            $this->assign('title', $title);
-        }
     }
     public function index()
     {
-
+        $seo=seo();
+        $this->assign([
+            'keywords'=> $seo['keywords'],
+            'description'=>$seo['description'],
+            'title'=>$seo['title']
+        ]);
         return $this->fetch('./register');
 
     }

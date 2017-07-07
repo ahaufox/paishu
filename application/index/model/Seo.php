@@ -13,7 +13,7 @@ define('CONTROLLER_NAME',Request::instance()->controller());
 class Seo extends Model
 {
 
-    //admin,设置各个页面的seo标题
+    //设置各个页面的seo标题
 
 
 }
