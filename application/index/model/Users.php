@@ -8,7 +8,7 @@
 namespace app\index\model;
 
 use think\Model;
-class User extends Model
+class Users extends Model
 {
 
 }

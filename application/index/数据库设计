@@ -11,10 +11,9 @@ user-负责用户基础信息储存
 {
     id->自增id;
     username->用户登录名(昵称);
-    email->用户邮箱;
     password->密码;
     avatar->用户头像;
-    mobile_phone->用户手机号
+    mobile->用户手机号
     register_time->注册时间;
     register_ip->注册ip;  //是否要存转换后的数据?
     register_location->注册地址;
