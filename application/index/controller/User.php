@@ -10,31 +10,6 @@ use think\Validate;//验证表单
 class User extends Controller
 {
 
-    /*
-     * 用户登录
-     */
-    public function login(Request $request){
-        if (Request::instance()->isPost()) {
-            $username = input('post.username');
-            $password = input('post.password');
-            $logintime= time();
-            $userInfo = Users::getByUsername($username);
-            if(!$userInfo){
-                return '用户不存在';
-            }
-            if(md5($password)!=$userInfo['password']){
-                return '密码错误';
-            }
-            Users::update(['id' => $userInfo->id, 'logintime' => $logintime]);
-
-            session::set('userid',$userInfo['id']);
-            session::set('username',$userInfo['username']);
-            session::set('logintime',$userInfo['logintime']);
-
-            return '登录成功:'.$userInfo['username'];
-        }
-    }
-
     public function userAdd(Request $request){
         if (Request::instance()->isPost()) {
             $username = input('post.username');
@@ -140,17 +115,9 @@ class User extends Controller
         }
     }
 
-    public function loginOut(){
-        
-        Session::delete('userid');
-        Session::delete('username');
-        Session::delete('logintime');
-
-        return jsonSuccess('退出成功');
-    }
 
     /*
-     * 调用首页
+     * 渲染首页
      */
     public function index()
     {
