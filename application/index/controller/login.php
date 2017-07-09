@@ -29,7 +29,6 @@ class Login extends Controller
         return $this->fetch('./login');
 
     }
-
     public function login()
     {
         $users=new Users;

@@ -1,0 +1,23 @@
+M
+    users
+        login
+        logout
+V
+    index
+        首页
+    login
+        登录
+    register
+        注册
+    yuyue
+        预约
+
+C
+    index
+    login
+        index
+            登录页面
+        login
+            请求M login
+        logout
+            请求M logout
