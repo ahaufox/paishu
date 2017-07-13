@@ -17,6 +17,7 @@ use app\index\model\Seo;
 
 
 function seo()//定义seo三个字段,定义domain,定义siteurl,定义
+
 {
     session::set('name','派书网');
 
@@ -35,4 +36,3 @@ function seo()//定义seo三个字段,定义domain,定义siteurl,定义
     }
     return ["title"=>"$title","keywords"=>"$keywords","description"=>"$description"];
 }
-
