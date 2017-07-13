@@ -1,106 +1,98 @@
 {include file="header" /}
+<!--加载幻灯片-->
+<div class="aui-content">
+    <div class="aui-searchbar" id="search">
+        <div class="aui-searchbar-input aui-border-radius" tapmode onclick="doSearch()">
+            <i class="aui-iconfont aui-icon-search"></i>
+            <form action="javascript:search();">
+                <input type="search" placeholder="请输入搜索内容" id="search-input">
+            </form>
+        </div>
+        <div class="aui-searchbar-cancel" style="margin-right: -32px;">取消</div>
+    </div>
+    <script type="text/javascript" src="./static/script/aui-dialog.js" ></script>
+    <script type="text/javascript">
+        var dialog = new auiDialog({})
+        function openDialog(type){
+            switch (type) {
+                case "callback":
+                    dialog.alert({
+                        title:"弹出提示",
+                        msg:'这里是内容',
+                        buttons:['取消','确定']
+                    },function(ret){
+                        if(ret){
+                            dialog.alert({
+                                title:"提示",
+                                msg:"您点击了第"+ret.buttonIndex+"个按钮",
+                                buttons:['确定']
+                            });
+                        }
+                    })
+                    break;
+                default:
+                    break;
+
+            }
+        }
+        apiready = function(){
+            api.parseTapmode();
+        }
+        var searchBar = document.querySelector(".aui-searchbar-input");
+        if(searchBar){
+            searchBar.onclick = function(){
+                document.querySelector(".aui-searchbar-cancel").style.marginRight = 10;
+            }
+        }
+        document.querySelector(".aui-searchbar-cancel").onclick = function(){
+            this.style.marginRight = "-"+this.offsetWidth+"px";
+            document.getElementById("search-input").value = '';
+            document.getElementById("search-input").blur();
+        }
+        function doSearch(){
+            var searchValue = document.getElementById("search-input").value;
+            if(searchValue){
+                alert("您输入的内容是:"+searchValue);
+            }
+        }
+    </script>
+</div>
+<!--加载幻灯片结束-->
+
 <!--加载头部内容 css,js,head-->
 <div class="aui-content">
-<link rel="stylesheet" type="text/css" href="./static/css/aui-slide.css" />
-<script type="text/javascript" src="./static/script/aui-slide.js"></script>
-<!--图片轮播板块开始-->
-<div id="aui-slide3">
-    <div class="aui-slide-wrap" >
-        <div class="aui-slide-node bg-dark">
-            <img src="./static/image/l1.png" />
-        </div>
-        <div class="aui-slide-node bg-dark">
-            <img src="./static/image/l2.png" />
-        </div>
-        <div class="aui-slide-node bg-dark">
-            <img src="./static/image/l3.png" />
-        </div>
-    </div>
-    <div class="aui-slide-page-wrap"><!--分页容器--></div>
-</div>
-<script type="text/javascript">
-    var slide3 = new auiSlide({
-        container:document.getElementById("aui-slide3"),
-        // "width":300,
-        "height":240,
-        "speed":800,
-        "autoPlay": 3000, //自动播放
-        "loop":true,
-        "pageShow":true,
-        "pageStyle":'dot',
-        'dotPosition':'center'
-    })
-
-</script>
-<!--图片轮播板块结束-->
-
-<!--按钮轮播板块开始-->
-
-<div id="aui-slide">
-    <div class="aui-slide-wrap" >
-        <div class="aui-slide-node">
-            <div class="aui-grid">
-                <div class="aui-row">
-                    <div class="aui-col-xs-4">
-                        <div class="aui-badge">8</div>
-                        <i class="aui-iconfont aui-icon-home"></i>
-                        <div class="aui-grid-label">首页</div>
-                    </div>
-                    <div class="aui-col-xs-4">
-                        <i class="aui-iconfont aui-icon-gear"></i>
-                        <div class="aui-grid-label">设置</div>
-                    </div>
-                    <div class="aui-col-xs-4">
-                        <i class="aui-iconfont aui-icon-map"></i>
-                        <div class="aui-grid-label">地图</div>
-                    </div>
-                </div>
+    <link rel="stylesheet" type="text/css" href="./static/css/aui-slide.css" />
+    <script type="text/javascript" src="./static/script/aui-slide.js"></script>
+    <!--图片轮播板块开始-->
+    <div id="aui-slide3">
+        <div class="aui-slide-wrap" >
+            <div class="aui-slide-node bg-dark">
+                <img src="./static/image/l1.png" />
+            </div>
+            <div class="aui-slide-node bg-dark">
+                <img src="./static/image/l2.png" />
+            </div>
+            <div class="aui-slide-node bg-dark">
+                <img src="./static/image/l3.png" />
             </div>
         </div>
-        <div class="aui-slide-node">
-            <div class="aui-grid">
-                <div class="aui-row">
-                    <div class="aui-col-xs-4">
-                        <i class="aui-iconfont aui-icon-calendar"></i>
-                        <div class="aui-grid-label">日历</div>
-                    </div>
-                    <div class="aui-col-xs-4">
-                        <div class="aui-badge"></div>
-                        <i class="aui-iconfont aui-icon-date"></i>
-                        <div class="aui-grid-label">日期</div>
-                    </div>
-                    <div class="aui-col-xs-4">
-                        <div class="aui-dot"></div>
-                        <i class="aui-iconfont aui-icon-cart"></i>
-                        <div class="aui-grid-label">购物车</div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div class="aui-slide-page-wrap"><!--分页容器--></div>
     </div>
-    <!--分页容标示-->
-   <div class="aui-slide-page-wrap"></div>
-</div>
+    <script type="text/javascript">
+        var slide3 = new auiSlide({
+            container:document.getElementById("aui-slide3"),
+            // "width":300,
+            "height":280,
+            "speed":800,
+            "autoPlay": 3000, //自动播放
+            "loop":true,
+            "pageShow":true,
+            "pageStyle":'dot',
+            'dotPosition':'center'
+        })
 
-<script type="text/javascript">
-    var slide = new auiSlide({
-        container:document.getElementById("aui-slide"),
-        // "width":300,
-        "height":100,
-        "autoPlay": 5000, //自动播放
-        "speed":800,
-        "pageShow":true,
-        "pageStyle":'line',//之前是 dot
-        "loop":true,
-        'dotPosition':'center',
-        currentPage:currentFun
-    })
-
-    function currentFun(index) {
-
-    }
-</script>
-<!--按钮轮播板块结束-->
+    </script>
+    <!--图片轮播板块结束-->
 </div>
 
 <!--加载底部内容 底部版权和导航-->

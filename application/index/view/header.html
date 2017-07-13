@@ -5,68 +5,13 @@
 <meta name="keywords" content="{$keywords}">
 <meta name="description" content="{$description}">
 <link rel="stylesheet" type="text/css" href="./static/css/aui.css" />
+<link rel="stylesheet" href="//cdn.bootcss.com/weui/1.1.1/style/weui.min.css">
+<link rel="stylesheet" href="//cdn.bootcss.com/jquery-weui/1.0.1/css/jquery-weui.min.css">
 <link rel="stylesheet" type="text/css" href="./static/css/buttons.css" />
 <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
-<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-<script src="https://cdn.bootcss.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 <script type="text/javascript" src="./static/script/aui-skin.js"></script>
 <script type="text/javascript" src="./static/script/api.js"></script>
 </head>
 <body>
-<div class="aui-content">
-    <div class="aui-searchbar" id="search">
-    <div class="aui-searchbar-input aui-border-radius" tapmode onclick="doSearch()">
-        <i class="aui-iconfont aui-icon-search"></i>
-        <form action="javascript:search();">
-            <input type="search" placeholder="请输入搜索内容" id="search-input">
-        </form>
-    </div>
-        <div class="aui-searchbar-cancel" style="margin-right: -32px;">取消</div>
-</div>
-    <script type="text/javascript" src="./static/script/aui-dialog.js" ></script>
-    <script type="text/javascript">
-        var dialog = new auiDialog({})
-        function openDialog(type){
-            switch (type) {
-                case "callback":
-                    dialog.alert({
-                        title:"弹出提示",
-                        msg:'这里是内容',
-                        buttons:['取消','确定']
-                    },function(ret){
-                        if(ret){
-                            dialog.alert({
-                                title:"提示",
-                                msg:"您点击了第"+ret.buttonIndex+"个按钮",
-                                buttons:['确定']
-                            });
-                        }
-                    })
-                    break;
-                default:
-                    break;
-
-            }
-        }
-        apiready = function(){
-            api.parseTapmode();
-        }
-        var searchBar = document.querySelector(".aui-searchbar-input");
-        if(searchBar){
-            searchBar.onclick = function(){
-                document.querySelector(".aui-searchbar-cancel").style.marginRight = 10;
-            }
-        }
-        document.querySelector(".aui-searchbar-cancel").onclick = function(){
-            this.style.marginRight = "-"+this.offsetWidth+"px";
-            document.getElementById("search-input").value = '';
-            document.getElementById("search-input").blur();
-        }
-        function doSearch(){
-            var searchValue = document.getElementById("search-input").value;
-            if(searchValue){
-                alert("您输入的内容是:"+searchValue);
-            }
-        }
-    </script>
-</div>
+    <div class="weui-tab">
+        <div class="weui-tab__panel">
