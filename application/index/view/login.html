@@ -1,65 +1,38 @@
-
 {include file="header" /}
-
-
-<div class="aui-content">
-<link rel="stylesheet" type="text/css" href="./static/css/aui-slide.css" />
-<script type="text/javascript" src="./static/script/aui-slide.js"></script>
-<!--图片轮播板块开始-->
-<div style="height:30%;" >
-    <img style="margin:40px auto;text-align:center" src="{$assess}"/>
-</div>
-
-<!--图片轮播板块结束-->
-</div>
-
-<div class="aui-content">
-<div class="aui-content aui-margin-b-15">
-    <ul class="aui-list aui-form-list">
-        <li class="aui-list-item">
-            <div class="aui-list-item-inner">
-                <div class="aui-list-item-label-icon">
-                    <i class="aui-iconfont aui-icon-mobile"></i>
-                </div>
-                <div class="aui-list-item-input">
-                    <form method="post">
-                    <input type="text" placeholder="username" id="name" name="username">
-                </div>
-            </div>
-        </li>
-        <li class="aui-list-item">
-            <div class="aui-list-item-inner">
-                <div class="aui-list-item-label-icon">
-                    <i class="aui-iconfont aui-icon-lock"></i>
-                </div>
-                <div class="aui-list-item-input">
-                    <input type="password" placeholder="password" id="pw" name="password">
-                </div>
-
-                <div class="aui-list-item-label-icon">
-                    <i class="aui-iconfont aui-icon-display"></i>
-                </div>
-            </div>
-        </li>
-    </ul>
-</div>
-<div class="aui-content-padded">
-    <button method="post" type="submit" class="aui-btn aui-btn-success aui-btn-block aui-btn-outlined" onclick="return check(this.form);">登录
-    </button>
-    </form>
-</div>
-    <div class="aui-content-padded">
-        <div class="aui-btn aui-btn-success aui-btn-block aui-btn-outlined">注册</div>
+<div style="text-align:center;">
+    <div style="height:30%;" >
+        <img style="margin:40px auto;"src="{$assess}"/>
     </div>
-
-<div class="aui-content-padded">
-    <div style="text-align:center;font-size:12px;">其它登录方式</div>
-    <div>
+    <form method="post">
+        <div class="weui-cells__title"></div>
+        <div class="weui-cells weui-cells_form">
+            <div class="weui-cell">
+                <div class="weui-cell__hd"><label class="weui-label">账户</label></div>
+                <div class="weui-cell__bd weui-cell_primary">
+                    <input type="tel"  name="username" class="weui-input" placeholder="手机号码">
+                </div>
+            </div>
+            <div class="weui-cell">
+                <div class="weui-cell__hd"><label class="weui-label">密码</label></div>
+                <div class="weui-cell__bd weui-cell_primary">
+                    <input type="password" name="password" class="weui-input" placeholder="不少于6位">
+                </div>
+            </div>
+        </div>
+        <div class="weui-btn-area">
+            <button class="weui-btn weui-btn_primary" onclick="return check(this.form);">登录</button>
+        </div>
+        <div class="weui-btn-area">
+            <a href="/register" class="important-tips">没账户，去注册</a>
+        </div>
+    </form>
+    <div class="weui-btn-area">
+        <div style="text-align:center;font-size:12px;">其它登录方式</div>
+    </div>
+    <div class="weui-btn-area">
         <img style="text-align:center;padding-top:5px" src="./static/image/icon32_wx_button.png"/>
     </div>
-
+    <script src="__JS__/register.js" type="text/javascript" charset="utf-8"></script>
 </div>
-
-<script src="./static/script/register.js" type="text/javascript" charset="utf-8"></script>
 
 {include file="bottom" /}

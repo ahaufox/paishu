@@ -1,99 +1,89 @@
 {include file="header" /}
-<!--加载幻灯片-->
-<div class="aui-content">
-    <div class="aui-searchbar" id="search">
-        <div class="aui-searchbar-input aui-border-radius" tapmode onclick="doSearch()">
-            <i class="aui-iconfont aui-icon-search"></i>
-            <form action="javascript:search();">
-                <input type="search" placeholder="请输入搜索内容" id="search-input">
+    <div style="height:30px">
+        <div class="weui-search-bar" id="searchBar">
+            <form class="weui-search-bar__form">
+                <div class="weui-search-bar__box">
+                    <i class="weui-icon-search"></i>
+                    <input type="search" class="weui-search-bar__input" id="searchInput" placeholder="搜索" required="">
+                    <a href="javascript:" class="weui-icon-clear" id="searchClear"></a>
+                </div>
+                <label class="weui-search-bar__label" id="searchText">
+                    <i class="weui-icon-search"></i>
+                    <span>搜索</span>
+                </label>
             </form>
+            <a href="javascript:" class="weui-search-bar__cancel-btn" id="searchCancel">取消</a>
         </div>
-        <div class="aui-searchbar-cancel" style="margin-right: -32px;">取消</div>
     </div>
-    <script type="text/javascript" src="./static/script/aui-dialog.js" ></script>
+    <div class="weui-cells searchbar-result" id="searchResult" style="transform-origin: 0px 0px 0px; opacity: 1; transform: scale(1, 1); display: none;">
+        <div class="weui-cell weui-cell_access">
+            <div class="weui-cell__bd weui-cell_primary">
+                <p>实时搜索文本</p>
+            </div>
+        </div>
+        <div class="weui-cell weui-cell_access">
+            <div class="weui-cell__bd weui-cell_primary">
+                <p>实时搜索文本</p>
+            </div>
+        </div>
+    </div>
     <script type="text/javascript">
-        var dialog = new auiDialog({})
-        function openDialog(type){
-            switch (type) {
-                case "callback":
-                    dialog.alert({
-                        title:"弹出提示",
-                        msg:'这里是内容',
-                        buttons:['取消','确定']
-                    },function(ret){
-                        if(ret){
-                            dialog.alert({
-                                title:"提示",
-                                msg:"您点击了第"+ret.buttonIndex+"个按钮",
-                                buttons:['确定']
-                            });
+        $(function(){
+            var $searchBar = $('#searchBar'),
+                    $searchResult = $('#searchResult'),
+                    $searchText = $('#searchText'),
+                    $searchInput = $('#searchInput'),
+                    $searchClear = $('#searchClear'),
+                    $searchCancel = $('#searchCancel');
+
+            function hideSearchResult(){
+                $searchResult.hide();
+                $searchInput.val('');
+            }
+            function cancelSearch(){
+                hideSearchResult();
+                $searchBar.removeClass('weui-search-bar_focusing');
+                $searchText.show();
+            }
+
+            $searchText.on('click', function(){
+                $searchBar.addClass('weui-search-bar_focusing');
+                $searchInput.focus();
+            });
+            $searchInput
+                    .on('blur', function () {
+                        if(!this.value.length) cancelSearch();
+                    })
+                    .on('input', function(){
+                        if(this.value.length) {
+                            $searchResult.show();
+                        } else {
+                            $searchResult.hide();
                         }
                     })
-                    break;
-                default:
-                    break;
-
-            }
-        }
-        apiready = function(){
-            api.parseTapmode();
-        }
-        var searchBar = document.querySelector(".aui-searchbar-input");
-        if(searchBar){
-            searchBar.onclick = function(){
-                document.querySelector(".aui-searchbar-cancel").style.marginRight = 10;
-            }
-        }
-        document.querySelector(".aui-searchbar-cancel").onclick = function(){
-            this.style.marginRight = "-"+this.offsetWidth+"px";
-            document.getElementById("search-input").value = '';
-            document.getElementById("search-input").blur();
-        }
-        function doSearch(){
-            var searchValue = document.getElementById("search-input").value;
-            if(searchValue){
-                alert("您输入的内容是:"+searchValue);
-            }
-        }
-    </script>
-</div>
-<!--加载幻灯片结束-->
-
-<!--加载头部内容 css,js,head-->
-<div class="aui-content">
-    <link rel="stylesheet" type="text/css" href="./static/css/aui-slide.css" />
-    <script type="text/javascript" src="./static/script/aui-slide.js"></script>
-    <!--图片轮播板块开始-->
-    <div id="aui-slide3">
-        <div class="aui-slide-wrap" >
-            <div class="aui-slide-node bg-dark">
-                <img src="./static/image/l1.png" />
-            </div>
-            <div class="aui-slide-node bg-dark">
-                <img src="./static/image/l2.png" />
-            </div>
-            <div class="aui-slide-node bg-dark">
-                <img src="./static/image/l3.png" />
-            </div>
-        </div>
-        <div class="aui-slide-page-wrap"><!--分页容器--></div>
+            ;
+            $searchClear.on('click', function(){
+                hideSearchResult();
+                $searchInput.focus();
+            });
+            $searchCancel.on('click', function(){
+                cancelSearch();
+                $searchInput.blur();
+            });
+        });</script>
+<script src="//cdn.bootcss.com/jquery-weui/1.0.1/js/swiper.min.js"></script>
+<br>
+<div class="swiper-container" data-space-between='10' data-pagination='.swiper-pagination' data-autoplay="1000">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="http://jqweui.com/dist/demos/images/swiper-3.jpg" alt=""></div>
+        <div class="swiper-slide"><img src="http://jqweui.com/dist/demos/images/swiper-3.jpg" alt=""></div>
+        <div class="swiper-slide"><img src="http://jqweui.com/dist/demos/images/swiper-3.jpg" alt=""></div>
     </div>
-    <script type="text/javascript">
-        var slide3 = new auiSlide({
-            container:document.getElementById("aui-slide3"),
-            // "width":300,
-            "height":280,
-            "speed":800,
-            "autoPlay": 3000, //自动播放
-            "loop":true,
-            "pageShow":true,
-            "pageStyle":'dot',
-            'dotPosition':'center'
-        })
-
-    </script>
-    <!--图片轮播板块结束-->
 </div>
-
-<!--加载底部内容 底部版权和导航-->
+<script>
+    $(".swiper-container").swiper({
+        loop: true,
+        autoplay: 3000
+    });
+</script>
 {include file="bottom" /}

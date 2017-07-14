@@ -68,7 +68,7 @@ return [
     // 操作方法后缀
     'action_suffix' => '',
     // 自动搜索控制器
-    'controller_auto_search' => false,
+    'controller_auto_search' => true,
 
     // +----------------------------------------------------------------------
     // | URL设置
@@ -233,5 +233,16 @@ return [
         'type' => 'bootstrap',
         'var_page' => 'page',
         'list_rows' => 15,
+    ],
+
+    //验证码配置
+    'captcha'  => [
+        // 验证码字体大小(px)
+        'fontSize' => 20,
+        // 验证码图片高度
+        'imageH'   => 40,
+        // 验证码图片宽度
+        'imageW'   => 150,
+
     ],
 ];
