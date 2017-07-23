@@ -1,17 +1,14 @@
 <?php
 namespace app\index\controller;
 
-use app\index\model\Seo;
 use think\Controller;
 use think\Session;
 
 
-class Register extends Controller
+class Article extends Controller
 {
-    public function _initialize()//定义seo三个字段
-    {
 
-    }
+
     public function index()
     {
         $seo=seo();
@@ -20,7 +17,8 @@ class Register extends Controller
             'description'=>$seo['description'],
             'title'=>$seo['title']
         ]);
-        return $this->fetch('./register');
+
+        return $this->fetch('./article');
 
     }
 

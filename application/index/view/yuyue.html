@@ -1,5 +1,5 @@
 {include file="header" /}
-<div  style="max-width:640px; margin:0 auto; background-color:#ffffff">
+<div style="max-width:640px; margin:0 auto; background-color:#ffffff;padding:0 10px 0 10px;">
     <div style="width:100%; margin:0 auto;overflow: hidden;">
         <img src="./static/image/gongxiang.png" style="max-width:100%;">
     </div>
@@ -24,7 +24,7 @@
 
     <!--- 顶部重填提醒 -->
     <div class="page__bd">
-        <form method="post" action="./remember.php">
+        <form method="post">
             <div class="weui-cells weui-cells_form">
                 <div class="weui-cell">
                     <div class="weui-cell__hd"><label class="weui-label">预计数量</label></div>
@@ -34,17 +34,9 @@
                     <div>本</div>
                 </div>
                 <div class="weui-cell">
-                    <div class="weui-cell__hd">
-                        <label class="weui-label">手机号</label>
-                    </div>
-                    <div class="weui-cell__bd">
-                        <input class="weui-input" type="tel" name="tel" placeholder="请填写您的联系方式">
-                    </div>
-                </div>
-                <div class="weui-cell">
                     <div class="weui-cell__hd"><label for="" class="weui-label">预约时间</label></div>
                     <div class="weui-cell__bd">
-                        <input class="weui-input" type="date" value="" name="yydate">
+                        <input class="weui-input" type="date"   name="yydate">
                     </div>
                 </div>
                 <div class="weui-cell">
@@ -54,7 +46,7 @@
                     </div>
                 </div>
             </div>
-            <button method="post" type="submit" style="height:46px" class="weui-btn weui-btn_primary" onclick="return check(this.form);">提交
+            <button style="height:46px" class="weui-btn weui-btn_primary" onclick="return check(this.form);">提交
             </button>
         </form>
         <div style="display:inline;"><i class="weui-icon-info-circle"
@@ -65,36 +57,48 @@
             </div>
             <div style="clear:both;"></div>
         </div>
-
-        <div style="padding: 30px 0 0 0;">
-            <div style="margin: 0 auto; text-align: center; font-weight: 600; font-size: 18px;"><a>相关问题</a></div>
-            <a href="http://www.paishuclub.com/mobile/index.php?m=default&amp;c=article&amp;a=info&amp;aid=7"
-               target="_blank"
-               style="display: block;color: #000;text-decoration: none;border-bottom: 1px solid #abab8f">收书的时候，书本的价格是怎么算是？</a>
-            <a href="http://www.paishuclub.com/mobile/index.php?m=default&amp;c=article&amp;a=info&amp;aid=10"
-               target="_blank"
-               style="display: block;color: #000;text-decoration: none;border-bottom: 1px solid #abab8f">预约后多久会联系我？</a>
-            <a href="http://www.paishuclub.com/mobile/index.php?m=default&amp;c=article&amp;a=info&amp;aid=8"
-               target="_blank"
-               style="display: block;color: #000;text-decoration: none;border-bottom: 1px solid #abab8f">π币怎么提现？</a>
-            <a href="http://www.paishuclub.com/mobile/index.php?m=default&amp;c=article&amp;a=info&amp;aid=9"
-               target="_blank"
-               style="display: block;color: #000;text-decoration: none;border-bottom: 1px solid #abab8f">怎么买书？</a>
+        <div class="weui-panel">
+            <div class="weui-panel__hd">相关问题</div>
+            <div class="weui-panel__bd">
+                <div class="weui-media-box weui-media-box_small-appmsg">
+                    <div class="weui-cells">
+                        <a class="weui-cell weui-cell_access"
+                           href="http://www.paishuclub.com/mobile/index.php?m=default&amp;c=article&amp;a=info&amp;aid=7">
+                            <div class="weui-cell__bd weui-cell_primary">
+                                <p>价格是如何计算？</p>
+                            </div>
+                            <span class="weui-cell__ft"></span>
+                        </a>
+                        <a class="weui-cell weui-cell_access"
+                           href="http://www.paishuclub.com/mobile/index.php?m=default&amp;c=article&amp;a=info&amp;aid=8">
+                            <div class="weui-cell__bd weui-cell_primary">
+                                <p>π币怎么提现？</p>
+                            </div>
+                            <span class="weui-cell__ft"></span>
+                        </a>
+                        <a class="weui-cell weui-cell_access"
+                           href="http://www.paishuclub.com/mobile/index.php?m=default&amp;c=article&amp;a=info&amp;aid=9">
+                            <div class="weui-cell__bd weui-cell_primary">
+                                <p>如何买书？</p>
+                            </div>
+                            <span class="weui-cell__ft"></span>
+                        </a>
+                        <a class="weui-cell weui-cell_access"
+                           href="http://www.paishuclub.com/mobile/index.php?m=default&amp;c=article&amp;a=info&amp;aid=10">
+                            <div class="weui-cell__bd weui-cell_primary">
+                                <p>预约后多久会联系我？</p>
+                            </div>
+                            <span class="weui-cell__ft"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
-        <br>
-        <div class="page__ft">微信/QQ：452193182</div>
+        <div class="page__ft">客服微信/QQ：452193182</div>
 
         <script type="text/javascript">
             function check(form) {
 //check开始
-                if (form.tel.value == '') {
-                    alert("没有手机号，小π怎么联系您呢");
-                    return false;
-                }
-                if (form.tel.value.length != 11) {
-                    alert("手机号写错啦，赶紧检查下吧");
-                    return false;
-                }
                 if (form.yydate.value == '') {
                     alert("请选择一个您方便的上面取书时间哦");
                     return false;
@@ -107,8 +111,28 @@
                     alert("您有多少书要置换呢？");
                     return false;
                 }
-                return true;//检查表格内容是否正确，若正确，执行一下内容 else 停止执行
+                $.ajax({
+                    type: "post",
+                    url: "yuyue/doyuyue",
+                    data: {
+                        "number": form.number.value,
+                        "location":form.location.value,
+                        "yydate":form.yydate.vale
+                    },
+                    dataType: "json",
+                    success: function (msg) {
+                        if (msg == "success") {
+                            //alert("登录成功");//后期改为dialog,可自动关闭
+                            window.location.href = './';
+                        }
+                        else {
+                            alert(msg);
+                        }
+                    },
+                });//检查表格内容是否正确，若正确，提交内容
+
             }
+
         </script>
     </div>
 </div>

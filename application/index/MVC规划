@@ -1,20 +1,24 @@
 M
-    users
+    Users
         login
         logout
+    Seo
+    OnSale
 V
     index
         首页
-    login
+    user
         登录
-    register
-        注册
+        用户中心
+    category
+        分类页
     yuyue
         预约
-
+    article
+        文章页
 C
     index
-    login
+    user
         index
             登录页面
         login

@@ -54,7 +54,7 @@ on_sale-负责在售书籍管理
     old_price->原价
     price->销售价
     pic->产品图片json包含
-    discription->描述
+    description->描述
     new_old->新旧程度1-9;
     user_id->所属用户
     is_delete->是否已经删除

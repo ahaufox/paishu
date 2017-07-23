@@ -1,7 +1,7 @@
 {include file="header" /}
 <div style="text-align:center;">
-    <div style="height:30%;" >
-        <img style="margin:40px auto;"src="{$assess}"/>
+    <div style="height:30%;">
+        <img style="margin:40px auto;" src="__IMAGE__{$assess}"/>
     </div>
     <form method="post">
         <div class="weui-cells__title"></div>
@@ -9,7 +9,7 @@
             <div class="weui-cell">
                 <div class="weui-cell__hd"><label class="weui-label">账户</label></div>
                 <div class="weui-cell__bd weui-cell_primary">
-                    <input type="tel"  name="username" class="weui-input" placeholder="手机号码">
+                    <input type="tel" name="username" class="weui-input" placeholder="手机号码">
                 </div>
             </div>
             <div class="weui-cell">
@@ -30,9 +30,10 @@
         <div style="text-align:center;font-size:12px;">其它登录方式</div>
     </div>
     <div class="weui-btn-area">
-        <img style="text-align:center;padding-top:5px" src="./static/image/icon32_wx_button.png"/>
+        <img style="text-align:center;padding-top:5px" src="__IMAGE__/icon32_wx_button.png"/>
     </div>
     <script src="__JS__/register.js" type="text/javascript" charset="utf-8"></script>
 </div>
+<!--登录结束-->
 
 {include file="bottom" /}

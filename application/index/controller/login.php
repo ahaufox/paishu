@@ -30,6 +30,7 @@ class Login extends Controller
         return $this->fetch('./login');
 
     }
+    /*
     public function login()
     {
         $users=new Users;
@@ -39,9 +40,10 @@ class Login extends Controller
         $u=new Users;
         $u=$u->logout();
         if($u='success'){
+            return redirect()->restore();
             $this->success('退出成功', 'http://localhost/public/index','',1);
         }
-    }
+    }*/
 
 
 }

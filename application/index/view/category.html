@@ -1,0 +1,108 @@
+{include file="header" /}
+<!--搜索框开始-->
+{include file="search" /}
+<!--搜索框结束-->
+<div class="weui-cells" style="max-width:30%;float:left;margin-top:0;" id="left">
+    <a class="weui-cell weui-cell_access" id="p1">
+        <div class="weui-cell__bd">
+            <p>公共学科</p>
+        </div>
+        <div class="weui-cell__ft">
+        </div>
+    </a>
+    <a class="weui-cell weui-cell_access" id="p2">
+        <div class="weui-cell__bd">
+            <p>公共学科</p>
+        </div>
+        <div class="weui-cell__ft">
+        </div>
+    </a>
+    <a class="weui-cell weui-cell_access">
+        <div class="weui-cell__bd">
+            <p>考研</p>
+        </div>
+        <div class="weui-cell__ft">
+        </div>
+    </a>
+    <a class="weui-cell weui-cell_access">
+        <div class="weui-cell__bd">
+            <p>公务员</p>
+        </div>
+        <div class="weui-cell__ft">
+        </div>
+    </a>
+    <a class="weui-cell weui-cell_access" href="javascript:;">
+        <div class="weui-cell__bd">
+            <p>计算机</p>
+        </div>
+        <div class="weui-cell__ft">
+        </div>
+    </a>
+    <a class="weui-cell weui-cell_access" href="javascript:;">
+        <div class="weui-cell__bd">
+            <p>工程建筑</p>
+        </div>
+        <div class="weui-cell__ft">
+        </div>
+    </a>
+    <a class="weui-cell weui-cell_access" href="javascript:;">
+        <div class="weui-cell__bd">
+            <p>财务</p>
+        </div>
+        <div class="weui-cell__ft">
+        </div>
+    </a>
+    <a class="weui-cell weui-cell_access" href="javascript:;">
+        <div class="weui-cell__bd">
+            <p>心理学</p>
+        </div>
+        <div class="weui-cell__ft">
+        </div>
+    </a>
+    <a class="weui-cell weui-cell_access" href="javascript:;">
+        <div class="weui-cell__bd">
+            <p>cell standard</p>
+        </div>
+        <div class="weui-cell__ft">
+        </div>
+    </a>
+    <a class="weui-cell weui-cell_access" href="javascript:;">
+        <div class="weui-cell__bd">
+            <p>cell standard</p>
+        </div>
+        <div class="weui-cell__ft">
+        </div>
+    </a>
+    <a class="weui-cell weui-cell_access" href="javascript:;">
+        <div class="weui-cell__bd">
+            <p>cell standard</p>
+        </div>
+        <div class="weui-cell__ft">
+        </div>
+    </a>
+</div>
+<div id="xx">
+    <div id="p1" style="max-width:60%;padding:15px;float:left;display:none">
+        <p style="word-break:break-all;width:100%">类目一{$title}</p>
+    </div>
+    <div id="p2" style="max-width:60%;padding:15px;float:left;display:none">
+        <p style="word-break:break-all;width:100%">类目二{$keywords}</p>
+    </div>
+</div>
+<script>
+    var h = window.screen.availHeight;//获取显示器高度
+    document.getElementById("left").style.height = h - 110;
+    document.getElementById("left").style.overflow = "auto";
+    var a = "a#p1";
+    var d = "div#p1";
+   // var n = $("a.weui-cell_access").length;
+    // 在php中循环输出js代码
+    $(a).click(function () {
+            $("div#xx div").hide();
+            $(d).show();
+            alert(a);
+        }
+    )
+</script>
+
+{include file="bottom" /}
