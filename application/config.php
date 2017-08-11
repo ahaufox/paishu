@@ -87,7 +87,7 @@ return [
     // URL参数方式 0 按名称成对解析 1 按顺序解析
     'url_param_type' => 0,
     // 是否开启路由
-    'url_route_on' => true,
+    'url_route_on' => false,
     // 路由使用完整匹配
     'route_complete_match' => true,
     // 路由配置文件（支持配置多个）
@@ -97,7 +97,7 @@ return [
     // 域名部署
     'url_domain_deploy' => false,
     // 域名根，如thinkphp.cn
-    'url_domain_root' => '',
+    'url_domain_root' => 'paishu.club',
     // 是否自动转换URL中的控制器和操作名
     'url_convert' => true,
     // 默认的访问控制器层
