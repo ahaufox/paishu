@@ -1,10 +1,9 @@
 <?php
 namespace app\index\controller;
 
-use think\Request;
-use think\Controller;
-use think\Url;
 use app\index\model\OnSale;
+use think\Controller;
+use think\Request;
 
 
 class Book extends Controller

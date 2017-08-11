@@ -4,7 +4,6 @@ namespace app\index\controller;
 use think\Controller;
 
 
-
 class Category extends Controller
 {
     public function _initialize()

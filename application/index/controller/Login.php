@@ -1,8 +1,6 @@
 <?php
 namespace app\index\controller;
 
-use app\index\model\Seo;
-use app\index\model\Users;
 use think\Controller;
 use think\Session;
 
