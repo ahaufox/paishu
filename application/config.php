@@ -14,10 +14,14 @@ return [
     // | 应用设置
     // +----------------------------------------------------------------------
 
+    // 是否开启ajax异常接管
+    'e' => true,
+    // 应用命名空间
+    'app_namespace' => 'app',
     // 应用调试模式
     'app_debug' => true,
     // 应用Trace
-    'app_trace' => false,
+    'app_trace' => true,
     // 应用模式状态
     'app_status' => '',
     // 是否支持多模块
@@ -27,7 +31,7 @@ return [
     // 注册的根命名空间
     'root_namespace' => [],
     // 扩展函数文件
-    'extra_file_list' => [THINK_PATH . 'helper' . EXT],
+    'extra_file_list' => [APP_PATH . 'helper' . EXT, THINK_PATH . 'helper' . EXT],
     // 默认输出类型
     'default_return_type' => 'html',
     // 默认AJAX 数据返回格式,可选json xml ...
@@ -41,7 +45,7 @@ return [
     // 是否开启多语言
     'lang_switch_on' => false,
     // 默认全局过滤方法 用逗号分隔多个
-    'default_filter' => 'htmlspecialchars',
+    'default_filter' => 'htmlentities',
     // 默认语言
     'default_lang' => 'zh-cn',
     // 应用类库后缀
@@ -68,7 +72,7 @@ return [
     // 操作方法后缀
     'action_suffix' => '',
     // 自动搜索控制器
-    'controller_auto_search' => true,
+    'controller_auto_search' => false,
 
     // +----------------------------------------------------------------------
     // | URL设置
@@ -87,9 +91,7 @@ return [
     // URL参数方式 0 按名称成对解析 1 按顺序解析
     'url_param_type' => 0,
     // 是否开启路由
-    'url_route_on' => false,
-    // 路由使用完整匹配
-    'route_complete_match' => true,
+    'url_route_on' => true,
     // 路由配置文件（支持配置多个）
     'route_config_file' => ['route'],
     // 是否强制使用路由
@@ -97,21 +99,13 @@ return [
     // 域名部署
     'url_domain_deploy' => false,
     // 域名根，如thinkphp.cn
-    'url_domain_root' => 'paishu.club',
+    'url_domain_root' => '',
     // 是否自动转换URL中的控制器和操作名
     'url_convert' => true,
     // 默认的访问控制器层
     'url_controller_layer' => 'controller',
     // 表单请求类型伪装变量
     'var_method' => '_method',
-    // 表单ajax伪装变量
-    'var_ajax' => '_ajax',
-    // 表单pjax伪装变量
-    'var_pjax' => '_pjax',
-    // 是否开启请求缓存 true自动缓存 支持设置请求缓存规则
-    'request_cache' => false,
-    // 请求缓存有效期
-    'request_cache_expire' => null,
 
     // +----------------------------------------------------------------------
     // | 模板设置
@@ -231,18 +225,7 @@ return [
     //分页配置
     'paginate' => [
         'type' => 'bootstrap',
-        'var_page' => 'page',
-        'list_rows' => 15,
-    ],
-
-    //验证码配置
-    'captcha'  => [
-        // 验证码字体大小(px)
-        'fontSize' => 20,
-        // 验证码图片高度
-        'imageH'   => 40,
-        // 验证码图片宽度
-        'imageW'   => 150,
-
+        'var_page' => 'p',
+        'list_rows' => 20,
     ],
 ];

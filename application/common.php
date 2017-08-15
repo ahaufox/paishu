@@ -11,9 +11,8 @@
 
 // 应用公共文件
 
-use think\Session;
-use think\Request;
 use app\index\model\Seo;
+use think\Session;
 
 
 function seo()//定义seo三个字段,定义domain,定义siteurl
@@ -34,4 +33,9 @@ function seo()//定义seo三个字段,定义domain,定义siteurl
         $description = $seo->description;
     }
     return ["title" => "$title", "keywords" => "$keywords", "description" => "$description"];
+}
+
+function tab($step = 1, $string = ' ', $size = 4)
+{
+    return str_repeat($string, $size * $step);
 }
