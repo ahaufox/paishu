@@ -31,7 +31,7 @@ class User extends Controller
         if (session::get('userid')) {
             return $this->success();
         }
-        $this->assign('assess', '/logo-100*100-8.png');
+        $this->assign('assess', '/logo-100_100-8.png');
         return $this->fetch('./login');
     }
 
@@ -59,7 +59,7 @@ class User extends Controller
     public function index()
     {
         if (!session::get('userid')) {
-            return $this->redirect('http://localhost/public/user/login');
+            return $this->redirect('../user/login');
         }
         return $this->fetch('./user');
 

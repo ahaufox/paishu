@@ -43,11 +43,11 @@ class View
         }
         $baseReplace = [
             '__ROOT__'   => $root,
-            '__URL__'    => $base . '/' . $request->module() . '/' . Loader::parseName($request->controller()),
-            '__STATIC__' => $root . '/static',
-            '__CSS__'    => $root . '/static/css',
-            '__JS__'     => $root . '/static/script',
-            '__IMAGE__'=>$root.'/static/image'
+            '__URL__'    => $base . '/public/' . $request->module() . '/' . Loader::parseName($request->controller()),
+            '__STATIC__' => $root . '/public/static',
+            '__CSS__'    => $root . '/public/static/css',
+            '__JS__'     => $root . '/public/static/script',
+            '__IMAGE__'=>$root.'/public/static/image'
         ];
         $this->replace = array_merge($baseReplace, (array) $replace);
     }

@@ -13,7 +13,7 @@ class Yuyue extends Controller
 
     public function index()
     {
-        $domain = Request::instance()->domain() . '/public/';//定义网站入口
+        $domain = Request::instance()->domain();//定义网站入口
         $seo = seo();
         $this->assign([
             'keywords' => $seo['keywords'],
@@ -28,7 +28,7 @@ class Yuyue extends Controller
         return $this->redirect( $domain . 'User/login');
     }
 
-    public function doyuyue()
+    public function doit()
     {
         //用户提交预约后的动作（写入数据库），返回success
         if (Request::instance()->isPost()) {
@@ -39,8 +39,7 @@ class Yuyue extends Controller
             $inserttime = time();
             $data = ['number' => $number, 'tel' => $tel, 'location' => $location, 'date' => strtotime($ydate), 'insert_time' => $inserttime];
             db('yuyue')->insert($data);
-            return 'su';
-
+            return 'success';
         };
         return '请求错误';
     }
