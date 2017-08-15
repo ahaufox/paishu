@@ -9,8 +9,6 @@ use think\Session;
 
 class Yuyue extends Controller
 {
-
-
     public function index()
     {
         $domain = Request::instance()->domain();//定义网站入口
@@ -25,23 +23,27 @@ class Yuyue extends Controller
             return $this->fetch('./yuyue');
         }
 
-        return $this->redirect( $domain . 'User/login');
+        return $this->redirect($domain . '/User/login');
     }
 
     public function doit()
     {
+
         //用户提交预约后的动作（写入数据库），返回success
         if (Request::instance()->isPost()) {
             $number = input('post.number');
-            $tel = input('post.tel');
+            $tel = session::get('tel');
             $location = input('post.location');
             $ydate = input('post.yydate');
             $inserttime = time();
             $data = ['number' => $number, 'tel' => $tel, 'location' => $location, 'date' => strtotime($ydate), 'insert_time' => $inserttime];
-            db('yuyue')->insert($data);
-            return 'success';
+            $res = db('yuyue')->insert($data);
+            if ($res) {
+                return 'success';
+            }
+            return '预约失败，请重试！';
         };
-        return '请求错误';
+
     }
 
 

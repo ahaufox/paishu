@@ -10,17 +10,15 @@
 
 use think\Request;
 
-$basename = Request::instance()->root();
-if (pathinfo($basename, PATHINFO_EXTENSION) == 'php') {
-    $basename = dirname($basename);
-}
+$request = Request::instance();
+$base = $request->root();
+$root = strpos($base, '.') ? ltrim(dirname($base), DS) : $base;
 
 return [
     // 模板参数替换
     'view_replace_str' => [
-        '__ROOT__' => $basename,
-        '__STATIC__' => $basename . '/static/admin',
-        '__LIB__' => $basename . '/static/admin/lib',
+        '__STATIC__' => $root . '/public/static/admin',
+
     ],
 
     // traits 目录

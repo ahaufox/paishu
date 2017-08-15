@@ -24,7 +24,7 @@
 
     <!--- 顶部重填提醒 -->
     <div class="page__bd">
-        <form method="post">
+        <form method="post" action="">
             <div class="weui-cells weui-cells_form">
                 <div class="weui-cell">
                     <div class="weui-cell__hd"><label class="weui-label">预计数量</label></div>
@@ -98,7 +98,7 @@
 
         <script type="text/javascript">
             function check(form) {
-//check开始
+                //check开始
                 if (form.yydate.value == '') {
                     alert("请选择一个您方便的上面取书时间哦");
                     return false;
@@ -113,17 +113,21 @@
                 }
                 $.ajax({
                     type: "post",
-                    url: "yuyue/doit",
+                    // url: "/index.php/index/yuyue/doit",
+                    url: "index.php/{:url('yuyue/doit')}",
+                    async: false,
                     data: {
                         "number": form.number.value,
                         "location":form.location.value,
-                        "yydate":form.yydate.vale
+                        "yydate": form.yydate.value,
                     },
                     dataType: "json",
                     success: function (msg) {
+
+                        console.log(msg);
+
                         if (msg == "success") {
-                            alert("登录成功");//后期改为dialog,可自动关闭
-                            window.location.href = './';
+                            alert("成功/后期改为dialog");//后期改为dialog,可自动关闭
                         }
                         else {
                             alert(msg);

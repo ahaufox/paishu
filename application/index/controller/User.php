@@ -1,12 +1,12 @@
 <?php
 namespace app\index\controller;
 
-use think\Controller;
-use think\Session;
-use think\Request;
-use app\index\model\Seo;
 use app\index\model\Users;
-use think\Validate;//验证表单
+use think\Controller;
+use think\Request;
+use think\Session;
+
+//验证表单
 
 
 class User extends Controller
@@ -49,7 +49,7 @@ class User extends Controller
         $u = new Users;
         $u = $u->logout();
         if ($u = 'success') {
-            $this->redirect('http://localhost/public', 302);
+            $this->redirect('__ROOT__/public', 302);
         }
     }
 

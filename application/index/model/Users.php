@@ -5,6 +5,7 @@
  * Date: 2017/7/7
  * Time: 下午11:16
  */
+
 namespace app\index\model;
 
 use think\Model;
@@ -30,6 +31,7 @@ class Users extends Model
             session::set('userid', $userInfo['id']);
             session::set('username', $userInfo['username']);
             session::set('logintime', $userInfo['logintime']);
+            session::set('tel', $userInfo['mobile']);
             return 'success';
         }
     }
@@ -40,6 +42,7 @@ class Users extends Model
         Session::delete('userid');
         Session::delete('username');
         Session::delete('logintime');
+        Session::delete('tel');
 
         return 'success';
     }
