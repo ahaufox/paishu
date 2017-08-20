@@ -9,7 +9,7 @@
  */
 
 use think\Request;
-
+$domain = Request::instance()->domain();//定义网站入口
 $request = Request::instance();
 $base = $request->root();
 $root = strpos($base, '.') ? ltrim(dirname($base), DS) : $base;

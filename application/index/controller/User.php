@@ -27,7 +27,7 @@ class User extends Controller
    */
     public function login()
     {
-        $domain = Request::instance()->domain() . '/public/';//定义网站入口
+
         if (session::get('userid')) {
             return $this->success();
         }
@@ -61,7 +61,11 @@ class User extends Controller
         if (!session::get('userid')) {
             return $this->redirect('../user/login');
         }
-        return $this->fetch('./user');
+        $this->assign([
+            'username'=>session::get('username'),
+            'userid'=>session::get('userid')
+        ]);
+        return $this->fetch();
 
     }
 
