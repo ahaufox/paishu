@@ -31,7 +31,7 @@ class User extends Controller
         if (session::get('userid')) {
             return $this->success();
         }
-        $this->assign('assess', '/logo-100_100-8.png');
+        $this->assign('assess', '/logo-100*100-8.png');
         return $this->fetch('./login');
     }
 
@@ -49,7 +49,7 @@ class User extends Controller
         $u = new Users;
         $u = $u->logout();
         if ($u = 'success') {
-            $this->redirect('__ROOT__/public', 302);
+            $this->redirect('/', 302);
         }
     }
 

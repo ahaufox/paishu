@@ -20,10 +20,10 @@ class Login extends Controller
     {
     //用完一次就不需要了,后期在用户设置头像的时候可以用
         //    \think\Image::open(ROOT_PATH.'/public/static/image/logo-500*500-8.png')->thumb(150, 150)->radius(75)->save(ROOT_PATH.'/public/static/image/logo-100*100-8.png');
-        $this->assign('assess','./static/image/logo-100*100-8.png');
+        $this->assign('assess','./static/image/logo-100*100-8.pngs');
         if(session::get('username')){
             //return '已经登录';
-            return $this->success('登录成功', 'http://localhost/public/index','',1);
+            return $this->success('登录成功', 'http://_ROOT_/public/index','',1);
         }
         return $this->fetch('./login');
 
