@@ -31,9 +31,9 @@ class Book extends Controller
         $this->assign([
             'booktitle'=>$b['title'],
             'auth'=>$b['auth'],
-            'isbn'=>$b['isbn']
+            'isbn' => $b['isbn'],
+            'userid' => $b['userid']
         ]);
-        return $this->fetch('./book');
-        //return $this->fetch('./book');
+        return $this->fetch();
     }
 }

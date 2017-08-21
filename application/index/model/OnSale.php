@@ -25,7 +25,8 @@ class OnSale extends Model
         return [
             "title" => $info->title,
             "auth" => $info->auth,
-            "isbn"=>$info->isbn
+            "isbn" => $info->isbn,
+            "userid" => $info->user_id
         ];
     }
 }
