@@ -31,7 +31,7 @@ class User extends Controller
         if (session::get('userid')) {
             return $this->success();
         }
-        $this->assign('assess', '/logo-100*100-8.png');
+        $this->assign('assess', '/logo-100_100-8.png');
         return $this->fetch('./login');
     }
 
