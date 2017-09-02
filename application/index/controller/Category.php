@@ -16,6 +16,6 @@ class Category extends Controller
         ]);
     }
     public function index(){
-        return $this->fetch('./category');
+        return $this->fetch();
     }
 }

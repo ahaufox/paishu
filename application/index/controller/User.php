@@ -32,7 +32,7 @@ class User extends Controller
             return $this->success();
         }
         $this->assign('assess', '/logo-100_100-8.png');
-        return $this->fetch('./login');
+        return $this->fetch();
     }
 
     public function dologin()

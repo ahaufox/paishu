@@ -18,7 +18,7 @@ class Article extends Controller
             'title'=>$seo['title']
         ]);
 
-        return $this->fetch('./article');
+        return $this->fetch();
 
     }
 
